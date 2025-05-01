@@ -1,0 +1,22 @@
+networks:
+  backend_sandbox_network:
+    driver: bridge
+
+services:
+
+  postgresql:
+    container_name: postgresql-database
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgresql_user
+      POSTGRES_PASSWORD: postgresql_password
+      POSTGRES_DB: postgresql_database
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgresql/data:/var/lib/postgresql/data
+      - ./sql/postgresql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+    networks:
+      - backend_sandbox_network

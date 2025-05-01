@@ -8,10 +8,11 @@ logs/
 *.log
 
 # Package files
-target/
+build/
 dist/
 out/
-build/
+target/
+data/postgresql/data/*
 .gradle
 *.jar
 *.app
