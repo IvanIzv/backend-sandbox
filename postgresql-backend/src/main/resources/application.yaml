@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgresql_database?currentSchema=backend_schema
+    url: jdbc:postgresql://postgresql:5432/postgresql_database?currentSchema=backend_schema
     username: postgresql_user
     password: postgresql_password
     type: com.zaxxer.hikari.HikariDataSource

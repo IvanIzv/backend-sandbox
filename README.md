@@ -43,12 +43,6 @@ mvn clean install
 docker compose up -d
 ```
 
-6. Запускаем backend сервис postgresql-backend:
-
-```
-java -jar postgresql-backend/target/postgresql-backend-1.0.0-SNAPSHOT.jar
-```
-
 ## Тестирование проекта
 
 ### Тестирование сервиса postgresql-backend
@@ -81,13 +75,7 @@ curl -v http://localhost:8181/actuator/prometheus
 
 ## Выключение проекта
 
-1. Останавливаем сервис postgresql-backend:
-
-```
-curl -v -X POST http://localhost:8181/actuator/shutdown
-```
-
-2. Останавливаем Docker Compose:
+1. Останавливаем Docker Compose:
 
 ```
 docker compose down

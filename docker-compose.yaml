@@ -20,3 +20,18 @@ services:
       - ./sql/postgresql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
     networks:
       - backend_sandbox_network
+
+  postgresql-backend:
+    container_name: postgresql-backend
+    image: bellsoft/liberica-openjdk-alpine
+    restart: unless-stopped
+    volumes:
+      - ./postgresql-backend/target:/app
+    working_dir: /app
+    command: java -jar postgresql-backend-1.0.0-SNAPSHOT.jar
+    ports:
+      - 8181:8181
+    networks:
+      - backend_sandbox_network
+    depends_on:
+      - postgresql
