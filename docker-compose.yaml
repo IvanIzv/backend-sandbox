@@ -9,15 +9,16 @@ services:
     image: postgres
     restart: unless-stopped
     environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_USER: postgresql_user
       POSTGRES_PASSWORD: postgresql_password
       POSTGRES_DB: postgresql_database
-      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_SCHEMA: backend_schema
     ports:
       - "5432:5432"
     volumes:
       - ./data/postgresql/data:/var/lib/postgresql/data
-      - ./sql/postgresql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      - ./initdb/postgresql:/docker-entrypoint-initdb.d
     networks:
       - backend_sandbox_network
 
@@ -25,6 +26,10 @@ services:
     container_name: postgresql-backend
     image: bellsoft/liberica-openjdk-alpine
     restart: unless-stopped
+    environment:
+      DATASOURCE_URL: jdbc:postgresql://postgresql:5432/postgresql_database?currentSchema=backend_schema
+      DATASOURCE_USERNAME: postgresql_user
+      DATASOURCE_PASSWORD: postgresql_password
     volumes:
       - ./postgresql-backend/target:/app
     working_dir: /app

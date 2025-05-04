@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://postgresql:5432/postgresql_database?currentSchema=backend_schema
-    username: postgresql_user
-    password: postgresql_password
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
     type: com.zaxxer.hikari.HikariDataSource
 
 management:
