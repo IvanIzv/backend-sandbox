@@ -7,6 +7,7 @@
 * [Запуск проекта](#запуск-проекта)
 * [Тестирование проекта](#тестирование-проекта)
 * [Тестирование сервиса postgresql-backend](#тестирование-сервиса-postgresql-backend)
+* [Тестирование Prometheus](#тестирование-prometheus)
 * [Выключение проекта](#выключение-проекта)
 
 ## Запуск проекта
@@ -29,6 +30,7 @@ cd backend-sandbox
 mkdir data                  
 mkdir data/postgresql      
 mkdir data/postgresql/data 
+mkdir data/prometheus
 ```
 
 4. Собираем backend сервис postgresql-backend:
@@ -52,7 +54,7 @@ docker compose up -d
 1. Проверка взаимодействия postgresql-backend с базой данных:
 
 ```
-curl -v -X GET http://localhost:8181/database/version
+curl -v http://localhost:8181/database/version
 ```
 
 2. Проверка генерации случайных чисел postgresql-backend:
@@ -73,9 +75,15 @@ curl -v http://localhost:8181/actuator/health
 curl -v http://localhost:8181/actuator/prometheus
 ```
 
+### Тестирование Prometheus
+
+```
+http://localhost:9090/targets
+```
+
 ## Выключение проекта
 
-1. Останавливаем Docker Compose:
+Останавливаем Docker Compose:
 
 ```
 docker compose down
