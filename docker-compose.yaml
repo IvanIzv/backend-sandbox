@@ -60,3 +60,18 @@ services:
       - backend_sandbox_network
     depends_on:
       - postgresql-backend
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+      - ./grafana/ds_prometheus.yaml:/etc/grafana/provisioning/datasources/ds_prometheus.yaml
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+    networks:
+      - backend_sandbox_network
+    depends_on:
+      - prometheus

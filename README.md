@@ -8,6 +8,7 @@
 * [Тестирование проекта](#тестирование-проекта)
 * [Тестирование сервиса postgresql-backend](#тестирование-сервиса-postgresql-backend)
 * [Тестирование Prometheus](#тестирование-prometheus)
+* [Тестирование Grafana](#тестирование-grafana)
 * [Выключение проекта](#выключение-проекта)
 
 ## Запуск проекта
@@ -31,6 +32,7 @@ mkdir data
 mkdir data/postgresql      
 mkdir data/postgresql/data 
 mkdir data/prometheus
+mkdir data/grafana
 ```
 
 4. Собираем backend сервис postgresql-backend:
@@ -79,6 +81,12 @@ curl -v http://localhost:8181/actuator/prometheus
 
 ```
 http://localhost:9090/targets
+```
+
+### Тестирование Grafana
+
+```
+http://localhost:3000
 ```
 
 ## Выключение проекта
