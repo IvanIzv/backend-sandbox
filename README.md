@@ -1,17 +1,17 @@
-# Проект Backend Sandbox
+# <span style="color: #cf4c34"> Проект Backend Sandbox </span>
 
 Проект песочница на основе Docker для тестирования и экспериментов.
 
-## Содержание
+## <span style="color: #4cc037"> Содержание </span>
 
-* [Запуск проекта](#запуск-проекта)
-* [Тестирование проекта](#тестирование-проекта)
-* [Тестирование сервиса postgresql-backend](#тестирование-сервиса-postgresql-backend)
-* [Тестирование Prometheus](#тестирование-prometheus)
-* [Тестирование Grafana](#тестирование-grafana)
-* [Выключение проекта](#выключение-проекта)
+* [Запуск проекта](#project-startup)
+* [Тестирование проекта](#project-testing)
+    * [Тестирование сервиса postgresql-backend](#postgresql-backend-testing)
+    * [Тестирование Prometheus](#prometheus-testing)
+    * [Тестирование Grafana](#grafana-testing)
+* [Выключение проекта](#project-shutdown)
 
-## Запуск проекта
+## <span style="color: #4cc037"> Запуск проекта </span> <a id="project-startup"></a>
 
 1. Клонируем проект
 
@@ -47,9 +47,9 @@ mvn clean install
 docker compose up -d
 ```
 
-## Тестирование проекта
+## <span style="color: #4cc037"> Тестирование проекта </span> <a id="project-testing"></a>
 
-### Тестирование сервиса postgresql-backend
+### <span style="color: #bf72fe"> Тестирование сервиса postgresql-backend </span> <a id="postgresql-backend-testing"></a>
 
 #### Тестирование логики postgresql-backend
 
@@ -77,19 +77,19 @@ curl -v http://localhost:8181/actuator/health
 curl -v http://localhost:8181/actuator/prometheus
 ```
 
-### Тестирование Prometheus
+### <span style="color: #bf72fe"> Тестирование Prometheus </span> <a id="prometheus-testing"></a>
 
 ```
 http://localhost:9090/targets
 ```
 
-### Тестирование Grafana
+### <span style="color: #bf72fe"> Тестирование Grafana </span> <a id="grafana-testing"></a>
 
 ```
 http://localhost:3000
 ```
 
-## Выключение проекта
+## <span style="color: #4cc037"> Выключение проекта </span> <a id="project-shutdown"></a>
 
 Останавливаем Docker Compose:
 
