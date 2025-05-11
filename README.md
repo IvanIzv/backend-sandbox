@@ -7,6 +7,8 @@
 * [Запуск проекта](#project-startup)
 * [Тестирование проекта](#project-testing)
     * [Тестирование сервиса postgresql-backend](#postgresql-backend-testing)
+    * [Метрики предоставляемые сервисом postgresql-backend](#postgresql-backend-testing)
+    * [Метрики предоставляемые сервисом Node-exporter](#node-exporter-testing)
     * [Тестирование Prometheus](#prometheus-testing)
     * [Тестирование Grafana](#grafana-testing)
 * [Выключение проекта](#project-shutdown)
@@ -71,10 +73,16 @@ curl -v -X POST -H 'Content-Type: application/json' -d '{"min": 1, "max": 100}' 
 curl -v http://localhost:8181/actuator/health
 ```
 
-#### Тестирование генерации метрик Prometheus сервисом postgresql-backend
+### <span style="color: #bf72fe"> Метрики предоставляемые сервисом postgresql-backend </span> <a id="postgresql-backend-testing"></a>
 
 ```
 curl -v http://localhost:8181/actuator/prometheus
+```
+
+### <span style="color: #bf72fe"> Метрики предоставляемые сервисом Node-exporter (метрики Linux сервера) </span> <a id="node-exporter-testing"></a>
+
+```
+curl -v http://localhost:9100/metrics
 ```
 
 ### <span style="color: #bf72fe"> Тестирование Prometheus </span> <a id="prometheus-testing"></a>
